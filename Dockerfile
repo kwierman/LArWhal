@@ -27,7 +27,18 @@ RUN mkdir /larbys
 WORKDIR /larbys
 
 #INSTALL LARCV
-RUN /bin/bash -c "git clone https://github.com/LArbys/LArCV"
+RUN git clone https://github.com/LArbys/LArCV
+WORKDIR /larbys/LArCV
+RUN /bin/bash -c "source configure.sh && make"
+
+#INSTALL LArCaffe
+WORKDIR /larbys/LArCV
+RUN git clone https://github.com/LArbys/caffe
+RUN /bin/bash -c "source LArCV/configure.sh \
+  && cd caffe \
+  && ./configure.sh \ 
+  && make \
+  && make pycaffe"
 
 # Define default command.
 CMD bash
