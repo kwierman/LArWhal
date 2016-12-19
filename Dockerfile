@@ -11,6 +11,7 @@ RUN apt-get install -y libopencv-dev python-opencv
 
 WORKDIR /tmp
 COPY requirements.txt /tmp/
+RUN pip install cython
 RUN pip install -r /tmp/requirements.txt
 
 #GET ROOT6.06.08
