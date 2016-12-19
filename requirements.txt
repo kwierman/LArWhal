@@ -1,5 +1,4 @@
 cython>=0.21
-Cython==0.25.2
 Pillow==3.4.2
 argparse==1.2.1
 chardet==2.0.1
