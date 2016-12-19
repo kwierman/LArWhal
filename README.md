@@ -13,8 +13,12 @@ nvidia-docker build -t larbys/larwhal:v1 .
 ## Running the Image in a Container
 
 ~~~bash
-nvidia-docker run -ti larbys/larwhal
+nvidia-docker run -ti --name <your job name> larbys/larwhal
 ~~~
+
+## Sharing Data with Container
+
+Typically, for using a single container, the training data sample and project directories need to be shared. For simplicity, I put these in the
 
 ### Running with X Forwarding
 
@@ -24,6 +28,7 @@ Add the following options to run
 nvidia-docker run -ti \
        -e DISPLAY=$DISPLAY \
        -v /tmp/.X11-unix:/tmp/.X11-unix \
+       --name <your job name> \
        larbys/larwhal
 ~~~
 
