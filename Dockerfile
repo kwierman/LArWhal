@@ -3,11 +3,12 @@ FROM nvidia/cuda
 MAINTAINER Kevin Wierman <kevin.wierman@pnnl.gov>
 
 RUN apt-get  update -y
-RUN apt-get install -y -q wget curl git build-essential cmake python2.7-dev libx11-dev libxpm-dev libxft-dev libxext-dev libpng3 libjpeg8 gfortran libssl-dev libpcre3-dev libgl1-mesa-dev libglew1.5-dev libftgl-dev libmysqlclient-dev libfftw3-dev libcfitsio3-dev graphviz-dev libavahi-compat-libdnssd-dev libldap2-dev libxml2-dev libavformat-dev libavcodec-dev libavfilter-dev libswscale-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev zlib1g-dev libopenexr-dev libxine-dev libeigen3-dev libtbb-dev libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
-RUN sudo apt-get install -y --no-install-recommends libboost-all-dev
-RUN sudo apt-get install -y libatlas-base-dev 
-RUN sudo apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev
-RUN sudo apt-get install -y libopencv-dev python-opencv
+RUN apt-get install -y -q wget curl git build-essential cmake python2.7 python2.7-dev python-dev python-pip libx11-dev libxpm-dev libxft-dev libxext-dev libpng3 libjpeg8 gfortran libssl-dev libpcre3-dev libgl1-mesa-dev libglew1.5-dev libftgl-dev libmysqlclient-dev libfftw3-dev libcfitsio3-dev graphviz-dev libavahi-compat-libdnssd-dev libldap2-dev libxml2-dev libavformat-dev libavcodec-dev libavfilter-dev libswscale-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev zlib1g-dev libopenexr-dev libxine-dev libeigen3-dev libtbb-dev libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
+RUN apt-get install -y --no-install-recommends libboost-all-dev
+RUN apt-get install -y libatlas-base-dev 
+RUN apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev
+RUN apt-get install -y libopencv-dev python-opencv
+RUN pip install python-config
 
 WORKDIR /tmp
 
@@ -32,10 +33,10 @@ WORKDIR /larbys/LArCV
 RUN /bin/bash -c "source configure.sh && make"
 
 #INSTALL LArCaffe
-WORKDIR /larbys/LArCV
+WORKDIR /larbys
 RUN git clone https://github.com/LArbys/caffe
-RUN /bin/bash -c "source LArCV/configure.sh \
-  && cd caffe \
+WORKDIR /larbys/caffe
+RUN /bin/bash -c "source /larbys/LArCV/configure.sh \
   && ./configure.sh \ 
   && make \
   && make pycaffe"
