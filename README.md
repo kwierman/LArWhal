@@ -7,13 +7,13 @@ A docker image for running the LArby's framework.
 ~~~ bash
 git clone https://github.com/kwierman/LArWhal
 cd LArWhal
-docker build -t larbys/larwhal:v1 .
+nvidia-docker build -t larbys/larwhal:v1 .
 ~~~
 
 ## Running the Image in a Container
 
 ~~~bash
-docker run -ti larbys/larwhal
+nvidia-docker run -ti larbys/larwhal
 ~~~
 
 ### Running with X Forwarding
@@ -21,7 +21,7 @@ docker run -ti larbys/larwhal
 Add the following options to run 
 
 ~~~ bash
-docker run -ti \
+nvidia-docker run -ti \
        -e DISPLAY=$DISPLAY \
        -v /tmp/.X11-unix:/tmp/.X11-unix \
        larbys/larwhal
@@ -33,4 +33,4 @@ By default, you should be able to use `ctl-p`, `ctl-q` to detach.
 
 ### Reattaching to Container
 
-Run `docker ps` to see the running containers. Find the one with the `larbys/larwhal:v1` tag
+Run `nvidia-docker ps` to see the running containers. Find the one with the `larbys/larwhal:v1` tag
