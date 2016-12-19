@@ -8,9 +8,10 @@ RUN apt-get install -y --no-install-recommends libboost-all-dev
 RUN apt-get install -y libatlas-base-dev 
 RUN apt-get install -y libgflags-dev libgoogle-glog-dev liblmdb-dev
 RUN apt-get install -y libopencv-dev python-opencv
-RUN pip install python-config
 
 WORKDIR /tmp
+COPY requirements.txt /tmp/
+RUN pip install -r /tmp/requirements.txt
 
 #GET ROOT6.06.08
 RUN /bin/bash -c "git clone --depth 1 http://root.cern.ch/git/root.git -b v6-06-08 --single-branch \
@@ -41,5 +42,6 @@ RUN /bin/bash -c "source /larbys/LArCV/configure.sh \
   && make \
   && make pycaffe"
 
-# Define default command.
+COPY setup.sh /home/
+WORKDIR /home/
 CMD bash

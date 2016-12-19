@@ -10,3 +10,27 @@ cd LArWhal
 docker build -t larbys/larwhal:v1 .
 ~~~
 
+## Running the Image in a Container
+
+~~~bash
+docker run -ti larbys/larwhal
+~~~
+
+### Running with X Forwarding
+
+Add the following options to run 
+
+~~~ bash
+docker run -ti \
+       -e DISPLAY=$DISPLAY \
+       -v /tmp/.X11-unix:/tmp/.X11-unix \
+       larbys/larwhal
+~~~
+
+### Detaching from Container
+
+By default, you should be able to use `ctl-p`, `ctl-q` to detach.
+
+### Reattaching to Container
+
+Run `docker ps` to see the running containers. Find the one with the `larbys/larwhal:v1` tag
