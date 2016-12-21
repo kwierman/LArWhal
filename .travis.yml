@@ -7,7 +7,7 @@ services:
 
 before_install:
 - docker build -t larbys/larwhal:v1 .
-- docker run -ti --name larwhal_test larbys/larwhal
+- docker run -t --name larwhal_test larbys/larwhal
 - docker ps -a
 
 script:

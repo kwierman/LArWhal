@@ -21,8 +21,7 @@ RUN /bin/bash -c "git clone --depth 1 http://root.cern.ch/git/root.git -b v6-06-
            --enable-astiff --enable-builtin-afterimage --enable-builtin_ftgl --enable-builtin_glew --enable-builtin_pcre --enable-builtin-lzma \
            --enable-python --enable-roofit --enable-xml --enable-minuit2 \
            --disable-xrootd --fail-on-missing \
-   && make -j2 \
-   && make install \
+   && make -j4 install \
    && cd .. \
    && rm -rf root"
 
