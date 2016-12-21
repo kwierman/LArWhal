@@ -2,6 +2,9 @@
 
 A docker image for running the LArby's framework.
 
+[![Build Status](https://travis-ci.org/kwierman/LArWhal.svg?branch=master)](https://travis-ci.org/kwierman/LArWhal)
+
+
 ## How to build the image
 
 ~~~ bash
