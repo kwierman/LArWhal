@@ -15,15 +15,18 @@ RUN pip install cython>=0.21
 RUN pip install -r /tmp/requirements.txt
 
 #GET ROOT6.06.08
-RUN /bin/bash -c "git clone --depth 1 http://root.cern.ch/git/root.git -b v6-06-08 --single-branch \
-   && cd root \
-   && ./configure --prefix=/usr/local --minimal --disable-x11 \
-           --enable-astiff --enable-builtin-afterimage --enable-builtin_ftgl --enable-builtin_glew --enable-builtin_pcre --enable-builtin-lzma \
-           --enable-python --enable-roofit --enable-xml --enable-minuit2 \
-           --disable-xrootd --fail-on-missing \
-   && make -j4 install \
-   && cd .. \
-   && rm -rf root"
+RUN wget https://root.cern.ch/download/root_v6.06.08.Linux-ubuntu14-x86_64-gcc4.8.tar.gz
+RUN tar -xvf root*
+RUN cp -rf root/* /usr/local/.
+#RUN /bin/bash -c "git clone --depth 1 http://root.cern.ch/git/root.git -b v6-06-08 --single-branch \
+#   && cd root \
+#   && ./configure --prefix=/usr/local --minimal --disable-x11 \
+#           --enable-astiff --enable-builtin-afterimage --enable-builtin_ftgl --enable-builtin_glew --enable-builtin_pcre --enable-builtin-lzma \
+#           --enable-python --enable-roofit --enable-xml --enable-minuit2 \
+#           --disable-xrootd --fail-on-missing \
+#   && make -j4 install \
+#   && cd .. \
+#   && rm -rf root"
 
 RUN mkdir /larbys
 WORKDIR /larbys
