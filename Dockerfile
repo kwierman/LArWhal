@@ -17,6 +17,7 @@ RUN pip install -r /tmp/requirements.txt
 #GET ROOT6.06.08
 RUN wget https://root.cern.ch/download/root_v6.06.08.Linux-ubuntu14-x86_64-gcc4.8.tar.gz
 RUN tar -xvf root*
+RUN rm -rf /usr/local/man
 RUN cp -rf root/* /usr/local/.
 #RUN /bin/bash -c "git clone --depth 1 http://root.cern.ch/git/root.git -b v6-06-08 --single-branch \
 #   && cd root \

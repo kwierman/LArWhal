@@ -4,9 +4,9 @@ A docker image for running the LArby's framework.
 
 [![Build Status](https://travis-ci.org/kwierman/LArWhal.svg?branch=master)](https://travis-ci.org/kwierman/LArWhal) 
 
-> *Note:* This build tends to time out due to the ROOT dependency. This is unavoidable until the canonical ROOT is updated to  `>=6.6`.
+> _Note:_ This build tends to time out due to the ROOT dependency. This is unavoidable until the canonical ROOT is updated to  `>=6.6`.
 
-> *Note:* Currently the build is being tested with pre-compiled ROOT binaries instead of building from source. This may fail on certain platforms.
+> _Note:_ Currently the build is being tested with pre-compiled ROOT binaries instead of building from source. This may fail on certain platforms.
 
 ## How to build the image
 
