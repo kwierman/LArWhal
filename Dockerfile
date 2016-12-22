@@ -34,13 +34,13 @@ WORKDIR /larbys
 #INSTALL LARCV
 RUN git clone https://github.com/LArbys/LArCV
 WORKDIR /larbys/LArCV
-RUN /bin/bash -c "source configure.sh && make"
+RUN /bin/bash -c "source /usr/local/bin/thisroot.sh && source configure.sh && make"
 
 #INSTALL LArCaffe
 WORKDIR /larbys
 RUN git clone https://github.com/LArbys/caffe
 WORKDIR /larbys/caffe
-RUN /bin/bash -c "source /larbys/LArCV/configure.sh \
+RUN /bin/bash -c "source /usr/local/bin/thisroot.sh && source /larbys/LArCV/configure.sh \
   && ./configure.sh \ 
   && make \
   && make pycaffe"
