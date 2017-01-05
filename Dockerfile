@@ -42,6 +42,7 @@ WORKDIR /larbys
 RUN git clone https://github.com/LArbys/caffe
 WORKDIR /larbys/caffe
 RUN /bin/bash -c "source /usr/local/bin/thisroot.sh && source /larbys/LArCV/configure.sh \
+  && git checkout c420d9664fd5188f3abd1163853969c8b1dd0519 \
   && ./configure.sh \ 
   && make \
   && make pycaffe"
