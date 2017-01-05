@@ -14,7 +14,7 @@ A docker image for running the LArby's framework.
 ~~~ bash
 git clone https://github.com/kwierman/LArWhal
 cd LArWhal
-nvidia-docker build -t larbys/larwhal:v1 .
+nvidia-docker build -t larbys/larwhal:latest .
 ~~~
 
 ## Running the Image in a Container
