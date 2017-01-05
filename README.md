@@ -1,4 +1,4 @@
-<img src="https://github.com/kwierman/LArWhal/blob/master/larwhal.png?raw=true" data-canonical-src="https://github.com/kwierman/LArWhal/blob/master/larwhal.png?raw=true" width="100" />
+<!--<img src="https://github.com/kwierman/LArWhal/blob/master/larwhal.png?raw=true" data-canonical-src="https://github.com/kwierman/LArWhal/blob/master/larwhal.png?raw=true" width="100" />-->
 # LArWhal 
 
 A docker image for running the LArby's framework.
