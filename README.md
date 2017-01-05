@@ -1,7 +1,7 @@
 <!--<img src="https://github.com/kwierman/LArWhal/blob/master/larwhal.png?raw=true" data-canonical-src="https://github.com/kwierman/LArWhal/blob/master/larwhal.png?raw=true" width="100" />-->
 # LArWhal 
 
-A docker image for running the LArby's framework.
+A dockerfile for running the LArby's framework image.
 
 [![Build Status](https://travis-ci.org/kwierman/LArWhal.svg?branch=master)](https://travis-ci.org/kwierman/LArWhal) 
 
