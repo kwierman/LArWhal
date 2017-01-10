@@ -11,6 +11,8 @@ A dockerfile for running the LArby's framework image.
 
 ## How to build the image
 
+This guide assumes that the user and/or developer is already familiar with the [Docker user guide](https://docs.docker.com/engine/userguide/intro/). As such, this guide is meant to be more of a reference for getting projects depending on this software off the ground quickly.
+
 ~~~ bash
 git clone https://github.com/kwierman/LArWhal
 cd LArWhal
