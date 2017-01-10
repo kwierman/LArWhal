@@ -56,3 +56,18 @@ nvidia-docker attach <name or ID>
 ~~~
 
 > *Note:* In this case, the container is using the `nvidia-docker` commands. On some NVidia produced systems, the vanilla `docker` binary has been aliased to `nvidia-docker`.
+
+## Running Caffe within the Continer
+
+In order to setup the environment, the following command needs to be issued first:
+
+~~~ bash
+source /home/setup.sh
+~~~
+
+The caffe executable can be communicated with using the path `/larbys/caffe/build/tools/caffe`. Thus, to commence training, the following example works for a network `kwierman_sp_resnet.prototxt`
+
+~~~ bash
+cd /data/kwierman/resnet
+/larbys/caffe/build/tools/caffe train --solver=kwierman_sp_resnet_solver.prototxt --gpu=3
+~~~
