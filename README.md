@@ -4,6 +4,7 @@
 A dockerfile for running the LArby's framework image.
 
 [![Build Status](https://travis-ci.org/kwierman/LArWhal.svg?branch=master)](https://travis-ci.org/kwierman/LArWhal) 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 > _Note:_ This build tends to time out due to the ROOT dependency. This is unavoidable until the canonical ROOT is updated to  `>=6.6`.
 
