@@ -15,11 +15,17 @@ RUN pip install cython>=0.21
 RUN pip install -r /tmp/requirements.txt
 
 #GET ROOT6.06.08
-RUN wget https://root.cern.ch/download/root_v6.06.08.Linux-ubuntu14-x86_64-gcc4.8.tar.gz
-RUN tar -xvf root*
-RUN rm -rf /usr/local/man
-RUN cp -rf root/* /usr/local/.
-#RUN /bin/bash -c "git clone --depth 1 http://root.cern.ch/git/root.git -b v6-06-08 --single-branch \
+RUN git clone http://root.cern.ch/git/root.git
+WORKDIR /tmp/root
+RUN git tag -l
+RUN git checkout -b v6-04-18 v6-04-18
+RUN cmake .
+RUN make -j 4 install
+WORKDIR /tmp
+RUN rm -rf root
+
+
+#RUN /bin/bash -c "git clone --depth 1 http://root.cern.ch/git/root.git -b v6-04-18 --single-branch \
 #   && cd root \
 #   && ./configure --prefix=/usr/local --minimal --disable-x11 \
 #           --enable-astiff --enable-builtin-afterimage --enable-builtin_ftgl --enable-builtin_glew --enable-builtin_pcre --enable-builtin-lzma \
@@ -40,7 +46,7 @@ RUN /bin/bash -c "source /usr/local/bin/thisroot.sh && source configure.sh && ma
 
 #INSTALL LArCaffe
 WORKDIR /larbys
-RUN git clone https://github.com/LArbys/caffe
+RUN git clone https://github.com/HEP-DL/caffe
 WORKDIR /larbys/caffe
 RUN /bin/bash -c "source /usr/local/bin/thisroot.sh && source /larbys/LArCV/configure.sh \
   && ./configure.sh \ 
